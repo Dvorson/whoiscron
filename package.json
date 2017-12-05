@@ -1,0 +1,14 @@
+{
+  "name": "cronwhois",
+  "version": "0.1.0",
+  "description": "scan domain list on availability on certain dates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-xwhois": "^1.0.7"
+  }
+}

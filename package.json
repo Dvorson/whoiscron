@@ -4,11 +4,32 @@
   "description": "scan domain list on availability on certain dates",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "build": "webpack --config ./config/webpack.config.js --progress --colors",
+    "watch": "webpack --config ./config/webpack.config.js --watch --progress --colors"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-xwhois": "^1.0.7"
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/preset-env": "^7.0.0-beta.34",
+    "@babel/preset-react": "^7.0.0-beta.34",
+    "axios": "^0.17.1",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-preset-react": "^6.24.1",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0",
+    "koa-static": "^4.0.2",
+    "material-ui": "^1.0.0-beta.23",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "node-xwhois": "^1.0.7",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }

@@ -1,2 +1,4 @@
 node_modules
 lib/domainsList.json
+public/js
+.vscode

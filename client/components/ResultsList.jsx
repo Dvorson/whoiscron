@@ -10,8 +10,9 @@ import SendIcon from 'material-ui-icons/Send';
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
 import StarBorder from 'material-ui-icons/StarBorder';
+import { sortBy } from 'lodash';
 
-import { getDomains } from '../fetcher.js'
+import { getDomainsWithWhois } from '../fetcher.js';
 
 const styles = theme => ({
   root: {
@@ -27,7 +28,7 @@ class NestedList extends React.Component {
   state = { open: true };
 
   componentWillMount() {
-    getDomains().then((domains) => this.setState({ domains }));
+    getDomainsWithWhois().then((domains) => this.setState({ domains: sortBy(domains, 'expiry') }));
   }
 
   handleClick = () => {
@@ -41,13 +42,13 @@ class NestedList extends React.Component {
     return (
       <List className={classes.root} subheader={<ListSubheader>Domains status</ListSubheader>}>
         {
-          domains.map((domain) => 
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText inset primary={ domain } />
-          </ListItem>
+          domains.map((domain, index) => 
+            <ListItem button key={index}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText inset primary={ domain.name } secondary={ `Status: ${domain.state}, expires: ${domain.expiry}` }/>
+            </ListItem>
           )
         }
       </List>
